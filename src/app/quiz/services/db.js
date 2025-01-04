@@ -2,7 +2,7 @@ const AppError = require("../../../utils/appError");
 const Quiz = require("../model/quizSchema");
 
 module.exports = {
-  //=================== create quiz ================
+  //=================== Create quiz ================
 
   // Create a new quiz instance using the provided data
   createQuizDb: async (quizData) => {
@@ -14,7 +14,7 @@ module.exports = {
     return constructQuiz;
   },
 
-  //=================== get all quiz ================
+  //=================== Get all quiz ================
 
   getAllQuizDb: async () => {
     // Fetch all quizzes from the database
@@ -30,7 +30,7 @@ module.exports = {
     return fetchAllQuiz;
   },
 
-  //=================== update quiz  by id ================
+  //=================== Update quiz  by id ================
 
   updateQuizDb: async (quizData, quizId) => {
     // Find and update the quiz by ID
@@ -51,7 +51,7 @@ module.exports = {
     return findQuiz;
   },
 
-  //=================== delete quiz by id ================
+  //=================== Delete quiz by id ================
 
   deleteQuizDb: async (quizId) => {
     // Find and delete the quiz by ID

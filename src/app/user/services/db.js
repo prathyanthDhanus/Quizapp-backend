@@ -4,8 +4,8 @@ const bcrypt = require("bcrypt");
 const { userTokenService } = require("./common");
 
 module.exports = {
-    
-  //====================== user register =================
+
+  //====================== User register =================
 
   userRegisterDb: async (userName, email, password) => {
     //Checking if user is already exist or not
@@ -31,7 +31,7 @@ module.exports = {
     return createUser;
   },
 
-  //====================== user login =================
+  //====================== User login =================
 
   userLoginDb: async (email, password) => {
     const findUser = await User.findOne({ email: email });

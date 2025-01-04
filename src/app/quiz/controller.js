@@ -7,7 +7,7 @@ const {
 } = require("./services/db");
 
 module.exports = {
-  //=================== create quiz ================
+  //=================== Create quiz ================
 
   createQuiz: async (req, res) => {
     let { title, description, category, timeLimit } = req.body;
@@ -37,7 +37,7 @@ module.exports = {
     });
   },
 
-  //=================== get all quiz ================
+  //=================== Get all quiz ================
 
   getAllQuiz: async (req, res) => {
     // Fetch all quizzes from the database
@@ -49,7 +49,7 @@ module.exports = {
     });
   },
 
-  //=================== update a quiz by id ================
+  //=================== Update a quiz by id ================
 
   updateQuiz: async (req, res) => {
     let { title, description, category, timeLimit } = req.body;
@@ -78,7 +78,7 @@ module.exports = {
     });
   },
 
-  //=================== delete a quiz by id ================
+  //=================== Delete a quiz by id ================
 
   deleteQuiz: async (req, res) => {
     const quizId = req.params.quizId;

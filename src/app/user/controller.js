@@ -2,8 +2,8 @@ const AppError = require("../../utils/appError");
 const { userLoginDb, userRegisterDb } = require("./services/db");
 
 module.exports = {
-    
-  //================= user register ===============
+
+  //================= User register ===============
 
   userRegister: async (req, res) => {
     // Destructure user input from request body
@@ -24,7 +24,7 @@ module.exports = {
     });
   },
 
-  //================= user login ===============
+  //================= User login ===============
 
   userLogin: async (req, res) => {
     // Destructure user input from request body
