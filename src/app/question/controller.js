@@ -81,7 +81,7 @@ module.exports = {
     // Delete the question from the database
     const removeQuestion = await deleteQuestionDb(questionId);
 
-    return res.status(201).json({
+    return res.status(200).json({
       status: "success",
       message: "Question data deleted successfully",
       data: removeQuestion,

@@ -84,7 +84,7 @@ module.exports = {
     const quizId = req.params.quizId;
     // Delete the quiz from the database
     const removeQuiz = await deleteQuizDb(quizId);
-    return res.status(201).json({
+    return res.status(200).json({
       status: "success",
       message: "Quiz data deleted successfully",
       data: removeQuiz,
