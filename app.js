@@ -6,6 +6,9 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
+//User routes middleware
+const userRoute = require("./src/app/user/route");
+app.use("/api/user",userRoute);
 
 
 
