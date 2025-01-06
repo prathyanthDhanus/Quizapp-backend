@@ -5,7 +5,7 @@ const AppError = require("../../../utils/appError");
 module.exports = {
   //================= create question =================
   createQuestionDb: async (questionData) => {
-    const { quizId, questionText, options } = questionData;
+    const { quizId, questionText, options ,explanation} = questionData;
     // Validate that the quiz exists
     const quiz = await Quiz.findById(quizId);
     if (!quiz) {
@@ -20,6 +20,7 @@ module.exports = {
       quizId,
       questionText,
       options,
+      explanation
     });
     const savedQuestion = await question.save();
 
@@ -30,10 +31,10 @@ module.exports = {
     return savedQuestion;
   },
 
-  //================= Create question =================
+ //================= fetch all questions by quiz id =================
 
-  getAllQuestionsDb: async () => {
-    const findAllQuestions = await Question.find().populate("quizId");
+  getAllQuestionsByQuizIdDb: async (quizId) => {
+    const findAllQuestions = await Question.find({quizId:quizId}).populate("quizId");
 
     if (findAllQuestions === 0) {
       throw new AppError(

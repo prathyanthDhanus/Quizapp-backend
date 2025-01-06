@@ -4,16 +4,15 @@ const Question = require("../../question/model/questionSchema");
 
 module.exports = {
   //================== create result ==============
-
   createResultDb: async (userId, quizId, answers) => {
     let score = 0;
 
     // Iterate over the answers array
     for (const answer of answers) {
-      const { questionId, selectedOption } = answer;
+      const { isCorrect } = answer;
 
-      // Fetch the question from the database
-      const question = await Question.findById(questionId);
+      // Fetch the specific question using questionId and quizId
+      const question = await Question.findOne({ quizId: quizId });
 
       if (!question) {
         throw new AppError(
@@ -25,8 +24,8 @@ module.exports = {
 
       // Find the correct option in the question's options array
       const correctOption = question.options.find((option) => option.isCorrect);
-
-      if (correctOption && correctOption.text === selectedOption) {
+      // Check if the selected option matches the correct answer
+      if (correctOption && correctOption.isCorrect === isCorrect) {
         score++; // Increment score if the selected option matches the correct one
       }
     }
@@ -44,7 +43,6 @@ module.exports = {
 
     return result;
   },
-
   //================== get all result of a user ==============
 
   getAllResultOfAUserDb: async (userId) => {

@@ -8,7 +8,6 @@ module.exports = {
     //Extracting user id from the middleware(token);
     const userId = req.user.userId;
     const { quizId, answers } = req.body;
-
     // Validate required fields
     if (!quizId || !answers || answers.length === 0) {
       throw new AppError(

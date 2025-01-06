@@ -16,6 +16,7 @@ const resultSchema = new mongoose.Schema({
     {
       questionId: { type: mongoose.Schema.Types.ObjectId, ref: "Question" },
       selectedOption: { type: String },
+    //   isExplanationClicked:{ type: String },
     },
   ],
   completedAt: { type: Date, default: Date.now },
